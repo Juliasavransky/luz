@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>לוח זמנים — קופנהגן יולי 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
+    background: #f5f4f0;
+    color: #1a1a1a;
+    padding: 24px 16px 48px;
+    direction: rtl;
+  }
+  .page-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .page-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .page-header p {
+    font-size: 13px;
+    color: #888;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  /* legend */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 16px;
+    border: 0.5px solid #ddd;
+  }
+  .leg { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #666; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* day cards */
+  .day-card {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    border: 0.5px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .dh {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 15px;
+  }
+  .dh.travel { background: #e8e6e0; }
+  .dh.fri    { background: #EAF3DE; }
+  .dh.sat    { background: #E6F1FB; }
+  .dh.sun    { background: #EEEDFE; }
+  .dh.mon    { background: #E1F5EE; }
+  .dh.tue    { background: #FAEEDA; }
+  .dh.wed    { background: #FBEAF0; }
+
+  .dpill {
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 3px 9px;
+    background: rgba(255,255,255,0.65);
+    white-space: nowrap;
+  }
+  .dtitle { font-size: 14px; font-weight: 600; }
+  .dtitle.travel { color: #444; }
+  .dtitle.fri    { color: #27500A; }
+  .dtitle.sat    { color: #10567B; }
+  .dtitle.sun    { color: #1E1A59; }
+  .dtitle.mon    { color: #1F5A44; }
+  .dtitle.tue    { color: #7B5500; }
+  .dtitle.wed    { color: #7A1B46; }
+
+  .details {
+    padding: 0 15px 15px;
+    color: #444;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+  .details ul {
+    list-style: none;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+  .details li {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .time {
+    min-width: 48px;
+    font-weight: 700;
+    color: #222;
+  }
+  .event { flex: 1; }
+  .event span { color: #666; font-size: 13px; }
+
+  .footer {
+    margin-top: 24px;
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="page-header">
+    <h1>לוח זמנים — קופנהגן יולי 2026</h1>
+    <p>לוח מסלול וטיפים לטיול</p>
+  </header>
+
+  <section class="legend">
+    <div class="leg"><div class="leg-dot" style="background:#EAF3DE"></div> שישי</div>
+    <div class="leg"><div class="leg-dot" style="background:#E6F1FB"></div> שבת</div>
+    <div class="leg"><div class="leg-dot" style="background:#EEEDFE"></div> ראשון</div>
+    <div class="leg"><div class="leg-dot" style="background:#E1F5EE"></div> שני</div>
+    <div class="leg"><div class="leg-dot" style="background:#FAEEDA"></div> שלישי</div>
+    <div class="leg"><div class="leg-dot" style="background:#FBEAF0"></div> רביעי</div>
+  </section>
+
+  <article class="day-card">
+    <div class="dh travel">
+      <div class="dpill">טיול</div>
+      <div class="dtitle travel">הגעה לקופנהגן</div>
+      <div>4.7</div>
+    </div>
+    <div class="details">
+      <ul>
+        <li><span class="time">15:30</span><div class="event">נחיתה, איסוף כבודה והגעה למלון</div></li>
+        <li><span class="time">17:30</span><div class="event">טיול קצר בסביבת המלון</div></li>
+        <li><span class="time">20:00</span><div class="event">ארוחת ערב קלה ברחוב המסעדות</div></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="day-card">
+    <div class="dh fri">
+      <div class="dpill">שישי</div>
+      <div class="dtitle fri">סיור בעיר העתיקה ונעלי גינס</div>
+      <div>5.7</div>
+    </div>
+    <div class="details">
+      <ul>
+        <li><span class="time">9:30</span><div class="event">ביקור בכיכר העיר העתיקה</div></li>
+        <li><span class="time">12:00</span><div class="event">קפה ובורגר ליד הנמל</div></li>
+        <li><span class="time">16:00</span><div class="event">חנויות, מוזיאון קטן ושיט קצר</div></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="day-card">
+    <div class="dh sat">
+      <div class="dpill">שבת</div>
+      <div class="dtitle sat">הכרת האוכלוסייה והפארקים</div>
+      <div>6.7</div>
+    </div>
+    <div class="details">
+      <ul>
+        <li><span class="time">10:00</span><div class="event">נסיעה לאזור פארק קופנהגן</div></li>
+        <li><span class="time">13:00</span><div class="event">פיקניק וטיול בפארק</div></li>
+        <li><span class="time">18:00</span><div class="event">מנוחה וארוחה קלה</div></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="day-card">
+    <div class="dh sun">
+      <div class="dpill">ראשון</div>
+      <div class="dtitle sun">טיול יום ברובע המדע</div>
+      <div>7.7</div>
+    </div>
+    <div class="details">
+      <ul>
+        <li><span class="time">9:00</span><div class="event">ביקור במוזיאון המדע</div></li>
+        <li><span class="time">13:00</span><div class="event">ארוחה בשוק מקומי</div></li>
+        <li><span class="time">16:00</span><div class="event">סיור בחוף וקינוח בעגלה</div></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="day-card">
+    <div class="dh mon">
+      <div class="dpill">שני</div>
+      <div class="dtitle mon">קניות ושוק האוכל</div>
+      <div>8.7</div>
+    </div>
+    <div class="details">
+      <ul>
+        <li><span class="time">10:00</span><div class="event">קניות בשוק המקומי</div></li>
+        <li><span class="time">14:00</span><div class="event">טעימות אוכל רחוב</div></li>
+        <li><span class="time">18:00</span><div class="event">חזרה למלון ומנוחה</div></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="day-card">
+    <div class="dh tue">
+      <div class="dpill">שלישי</div>
+      <div class="dtitle tue">ביקור באתרי תרבות</div>
+      <div>9.7</div>
+    </div>
+    <div class="details">
+      <ul>
+        <li><span class="time">9:30</span><div class="event">ביקור במוזיאון האמנות</div></li>
+        <li><span class="time">12:30</span><div class="event">טיול ברובע האופנה</div></li>
+        <li><span class="time">16:30</span><div class="event">קפה ומנוחה בבית קפה</div></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="day-card">
+    <div class="dh wed">
+      <div class="dpill">רביעי</div>
+      <div class="dtitle wed">סיור סיכום בשוק ובחופים</div>
+      <div>10.7</div>
+    </div>
+    <div class="details">
+      <ul>
+        <li><span class="time">10:00</span><div class="event">ביקור בשוק</div></li>
+        <li><span class="time">13:00</span><div class="event">טיול בחוף</div></li>
+        <li><span class="time">18:00</span><div class="event">ארוחת סיום ותמונות</div></li>
+      </ul>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <p>האתר פועל באמצעות GitHub Pages. הקישור הסטטי שלך עובד אם יש לך קובץ index.html.</p>
+  </footer>
+</div>
+</body>
+</html>
