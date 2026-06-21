@@ -78,168 +78,308 @@
   .dtitle { font-size: 14px; font-weight: 600; }
   .dtitle.travel { color: #444; }
   .dtitle.fri    { color: #27500A; }
-  .dtitle.sat    { color: #10567B; }
-  .dtitle.sun    { color: #1E1A59; }
-  .dtitle.mon    { color: #1F5A44; }
-  .dtitle.tue    { color: #7B5500; }
-  .dtitle.wed    { color: #7A1B46; }
+  .dtitle.sat    { color: #0C447C; }
+  .dtitle.sun    { color: #3C3489; }
+  .dtitle.mon    { color: #085041; }
+  .dtitle.tue    { color: #633806; }
+  .dtitle.wed    { color: #72243E; }
+  .dzone {
+    font-size: 10px;
+    color: #666;
+    background: rgba(255,255,255,0.55);
+    border-radius: 4px;
+    padding: 2px 7px;
+    white-space: nowrap;
+  }
 
-  .details {
-    padding: 0 15px 15px;
-    color: #444;
-    line-height: 1.5;
-    font-size: 14px;
-  }
-  .details ul {
-    list-style: none;
-    margin-top: 10px;
-    padding-left: 0;
-  }
-  .details li {
+  .db { padding: 12px 15px; }
+
+  /* flight box */
+  .flight-box {
     display: flex;
-    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    background: #f7f6f3;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    border: 0.5px solid #e0e0e0;
+  }
+  .fleg { text-align: center; }
+  .fleg .city { font-size: 22px; font-weight: 700; }
+  .fleg .time { font-size: 14px; color: #555; margin-top: 2px; }
+  .fleg .place { font-size: 11px; color: #999; }
+  .farrow { text-align: center; flex: 1; font-size: 11px; color: #888; line-height: 1.7; }
+  .farrow .fnum { font-weight: 600; font-size: 13px; color: #444; }
+
+  /* timeline */
+  .tl {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    row-gap: 8px;
+    column-gap: 10px;
     margin-bottom: 10px;
   }
-  .time {
-    min-width: 48px;
-    font-weight: 700;
-    color: #222;
+  .ts {
+    font-size: 11px;
+    font-weight: 600;
+    color: #888;
+    padding-top: 2px;
+    line-height: 1.4;
   }
-  .event { flex: 1; }
-  .event span { color: #666; font-size: 13px; }
+  .tc {
+    font-size: 13px;
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+  .tc small { font-size: 11px; color: #888; }
 
-  .footer {
-    margin-top: 24px;
-    text-align: center;
-    color: #777;
+  .divider { border: none; border-top: 0.5px solid #eee; margin: 10px 0; }
+
+  /* tags */
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+  .tag {
+    font-size: 11px;
+    border-radius: 5px;
+    padding: 3px 8px;
+    display: inline-block;
+  }
+  .th { background: #E6F1FB; color: #0C447C; }
+  .tk { background: #FCEBEB; color: #791F1F; }
+  .tn { background: #f2f1ed; color: #666; }
+  .tw { background: #FAEEDA; color: #633806; }
+
+  /* tip boxes */
+  .tip {
+    border-radius: 7px;
+    padding: 9px 12px;
     font-size: 12px;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+  .tip.green  { background: #EAF3DE; color: #27500A; border: 0.5px solid #C0DD97; }
+  .tip.amber  { background: #FAEEDA; color: #633806; border: 0.5px solid #FAC775; }
+  .tip.red    { background: #FCEBEB; color: #791F1F; border: 0.5px solid #F09595; }
+  .tip.blue   { background: #E6F1FB; color: #0C447C; border: 0.5px solid #B5D4F4; }
+  b { font-weight: 600; }
+
+  @media print {
+    body { background: #fff; padding: 10px; }
+    .day-card { box-shadow: none; break-inside: avoid; }
+    .page-header h1 { font-size: 20px; }
   }
 </style>
 </head>
 <body>
 <div class="container">
-  <header class="page-header">
-    <h1>לוח זמנים — קופנהגן יולי 2026</h1>
-    <p>לוח מסלול וטיפים לטיול</p>
-  </header>
 
-  <section class="legend">
-    <div class="leg"><div class="leg-dot" style="background:#EAF3DE"></div> שישי</div>
-    <div class="leg"><div class="leg-dot" style="background:#E6F1FB"></div> שבת</div>
-    <div class="leg"><div class="leg-dot" style="background:#EEEDFE"></div> ראשון</div>
-    <div class="leg"><div class="leg-dot" style="background:#E1F5EE"></div> שני</div>
-    <div class="leg"><div class="leg-dot" style="background:#FAEEDA"></div> שלישי</div>
-    <div class="leg"><div class="leg-dot" style="background:#FBEAF0"></div> רביעי</div>
-  </section>
+  <div class="page-header">
+    <h1>✈️ קופנהגן — יולי 2026</h1>
+    <p>11 נוסעים · 3 משפחות · LY5411 / LY5412 · 23–30 יולי</p>
+  </div>
 
-  <article class="day-card">
+  <div class="legend">
+    <span class="leg"><span class="leg-dot" style="background:#3B6D11"></span>מרכז העיר (רגלית)</span>
+    <span class="leg"><span class="leg-dot" style="background:#185FA5"></span>אמאגר / דרום</span>
+    <span class="leg"><span class="leg-dot" style="background:#534AB7"></span>קסטרופ (Blue Planet)</span>
+    <span class="leg"><span class="leg-dot" style="background:#0F6E56"></span>פרדריקסברג / מערב</span>
+    <span class="leg"><span class="leg-dot" style="background:#BA7517"></span>הלרופ / צפון</span>
+  </div>
+
+  <!-- DAY 1: ARRIVAL -->
+  <div class="day-card">
     <div class="dh travel">
-      <div class="dpill">טיול</div>
-      <div class="dtitle travel">הגעה לקופנהגן</div>
-      <div>4.7</div>
+      <span class="dpill">ה׳ 23.7</span>
+      <span class="dtitle travel">✈️ הגעה — TLV → CPH</span>
+      <span class="dzone">LY5411</span>
     </div>
-    <div class="details">
-      <ul>
-        <li><span class="time">15:30</span><div class="event">נחיתה, איסוף כבודה והגעה למלון</div></li>
-        <li><span class="time">17:30</span><div class="event">טיול קצר בסביבת המלון</div></li>
-        <li><span class="time">20:00</span><div class="event">ארוחת ערב קלה ברחוב המסעדות</div></li>
-      </ul>
+    <div class="db">
+      <div class="flight-box">
+        <div class="fleg"><div class="city">TLV</div><div class="time">07:00</div><div class="place">תל אביב</div></div>
+        <div class="farrow"><span class="fnum">LY5411</span><br>── 4h40m ──▶<br>מושב 20B</div>
+        <div class="fleg"><div class="city">CPH</div><div class="time">10:40</div><div class="place">קופנהגן</div></div>
+      </div>
+      <div class="tl">
+        <span class="ts">10:40</span><span class="tc">נחיתה בנמל CPH — דרכונים + מטענים <small>(~40 דק׳)</small></span>
+        <span class="ts">11:30–12:30</span><span class="tc">נסיעה למלון <small>(מטרו 15 דק׳ + פרוצדורות)</small></span>
+        <span class="ts">12:30–15:00</span><span class="tc">השארת מזוודות (check-in מ-15:00) · ארוחת צהריים · Kastallet · קנייה ב-Netto</span>
+        <span class="ts">15:00</span><span class="tc">כניסה לחדרים</span>
+        <span class="ts">19:00</span><span class="tc">ארוחת ערב — "Mario's" <small>(ליד המלון)</small></span>
+      </div>
+      <div class="tip amber">⚠️ <b>Check-in לרוב מ-15:00.</b> משאירים מזוודות בפרונט ויוצאים. אין אטרקציות ביום הגעה.</div>
     </div>
-  </article>
+  </div>
 
-  <article class="day-card">
+  <!-- DAY 2: TIVOLI -->
+  <div class="day-card">
     <div class="dh fri">
-      <div class="dpill">שישי</div>
-      <div class="dtitle fri">סיור בעיר העתיקה ונעלי גינס</div>
-      <div>5.7</div>
+      <span class="dpill">ו׳ 24.7</span>
+      <span class="dtitle fri">Tivoli + Strøget</span>
+      <span class="dzone">🟢 מרכז העיר</span>
     </div>
-    <div class="details">
-      <ul>
-        <li><span class="time">9:30</span><div class="event">ביקור בכיכר העיר העתיקה</div></li>
-        <li><span class="time">12:00</span><div class="event">קפה ובורגר ליד הנמל</div></li>
-        <li><span class="time">16:00</span><div class="event">חנויות, מוזיאון קטן ושיט קצר</div></li>
-      </ul>
+    <div class="db">
+      <div class="tl">
+        <span class="ts">10:00–11:00</span><span class="tc">Strøget — הליכה ראשונה, קפה, חלונות ראווה <small>(5 דק׳ מ-Tivoli)</small></span>
+        <span class="ts">11:00–23:30</span><span class="tc">גני Tivoli — גן, קרוסלות, ארוחות בפארק, מופעי ערב. CC כולל כניסה חינם.</span>
+      </div>
+      <div class="divider"></div>
+      <div class="tags">
+        <span class="tag th">⏰ ו׳: 11:00–00:00 (חצות!)</span>
+        <span class="tag tk">🎫 CC כולל כניסה · Ride Pass בנפרד</span>
+        <span class="tag tn">👴 סבא/סבתא: גן + מסעדות, בלי הגבהות</span>
+      </div>
+      <div class="tip green">💡 <b>למה ו׳?</b> ימי ו׳/ש׳ הם היחידים שTivoli פתוח עד חצות. זה ה-ו׳ היחיד בטיול. Tivoli ביום חול = 23:00 בלבד. Strøget 5 דקות הליכה מהכניסה.</div>
     </div>
-  </article>
+  </div>
 
-  <article class="day-card">
+  <!-- DAY 3: AMAGER -->
+  <div class="day-card">
     <div class="dh sat">
-      <div class="dpill">שבת</div>
-      <div class="dtitle sat">הכרת האוכלוסייה והפארקים</div>
-      <div>6.7</div>
+      <span class="dpill">ש׳ 25.7</span>
+      <span class="dtitle sat">CopenHill + Christiania + Reffen</span>
+      <span class="dzone">🔵 אמאגר / דרום</span>
     </div>
-    <div class="details">
-      <ul>
-        <li><span class="time">10:00</span><div class="event">נסיעה לאזור פארק קופנהגן</div></li>
-        <li><span class="time">13:00</span><div class="event">פיקניק וטיול בפארק</div></li>
-        <li><span class="time">18:00</span><div class="event">מנוחה וארוחה קלה</div></li>
-      </ul>
+    <div class="db">
+      <div class="tl">
+        <span class="ts">10:00–13:30</span><span class="tc">CopenHill — גלישה על מדרון מלאכותי, טיפוס, מסעדה בפסגה עם נוף לעיר</span>
+        <span class="ts">14:00–15:30</span><span class="tc">Christiania — הליכה חופשית, ארכיטקטורה אלטרנטיבית <small>(15 דק׳ מ-CopenHill)</small></span>
+        <span class="ts">15:30–21:00</span><span class="tc">Reffen — שוק אוכל חיצוני, 70+ דוכנים, בר פתוח עד 01:00</span>
+      </div>
+      <div class="divider"></div>
+      <div class="tags">
+        <span class="tag th">⏰ CopenHill ש׳: 10:00–17:00</span>
+        <span class="tag th">⏰ Reffen: 11:30–20:30 (בר עד 01:00)</span>
+        <span class="tag tk">🎫 CopenHill קבוצה 10+: הנחה — להזמין מראש</span>
+        <span class="tag tn">👴 סבא/סבתא: מגיעים ישירות ל-Reffen</span>
+      </div>
+      <div class="tip blue">💡 <b>למה ש׳?</b> CopenHill פתוח מ-10:00 בשבת (בימי חול רק מ-12:00). כל 3 המקומות בצד הדרומי של העיר — ניידות מינימלית. Reffen שבת = אווירה הכי טובה בשבוע, בר עד 01:00.</div>
     </div>
-  </article>
+  </div>
 
-  <article class="day-card">
+  <!-- DAY 4: BLUE PLANET + NYHAVN -->
+  <div class="day-card">
     <div class="dh sun">
-      <div class="dpill">ראשון</div>
-      <div class="dtitle sun">טיול יום ברובע המדע</div>
-      <div>7.7</div>
+      <span class="dpill">א׳ 26.7</span>
+      <span class="dtitle sun">Blue Planet + Nyhavn + שייט תעלות</span>
+      <span class="dzone">🟣 קסטרופ → מרכז</span>
     </div>
-    <div class="details">
-      <ul>
-        <li><span class="time">9:00</span><div class="event">ביקור במוזיאון המדע</div></li>
-        <li><span class="time">13:00</span><div class="event">ארוחה בשוק מקומי</div></li>
-        <li><span class="time">16:00</span><div class="event">סיור בחוף וקינוח בעגלה</div></li>
-      </ul>
+    <div class="db">
+      <div class="tl">
+        <span class="ts">10:00–13:00</span><span class="tc">Blue Planet — אקווריום לאומי, מנהרות שרקנים, עולמות אוקיינוסים <small>(slot מוזמן מראש!)</small></span>
+        <span class="ts">13:00–14:30</span><span class="tc">נסיעה למרכז + ארוחת צהריים בדרך <small>(35 דק׳ מ-Kastrup)</small></span>
+        <span class="ts">14:30–17:30</span><span class="tc">Nyhavn — הליכה לאורך הנמל הצבעוני + שייט תעלות (כ-1 שעה)</span>
+        <span class="ts">18:00</span><span class="tc">ארוחת ערב — Kongens Nytorv</span>
+      </div>
+      <div class="divider"></div>
+      <div class="tags">
+        <span class="tag th">⏰ Blue Planet א׳: 10:00–21:00 (היחיד!)</span>
+        <span class="tag th">⏰ שאר הימים: 10:00–17:00 בלבד</span>
+        <span class="tag tk">🎫 Blue Planet — time slot חובה! נגמר מהר</span>
+      </div>
+      <div class="tip green">💡 <b>למה א׳?</b> Blue Planet פתוח עד 21:00 ביום א׳ בלבד — שאר ימות השבוע סוגר ב-17:00. הולכים בבוקר בלי לחץ. Nyhavn אחה"צ = שמש יפה על הסירות הצבעוניות, קצת פחות צפוף.</div>
     </div>
-  </article>
+  </div>
 
-  <article class="day-card">
+  <!-- DAY 5: ROSENBORG CLUSTER -->
+  <div class="day-card">
     <div class="dh mon">
-      <div class="dpill">שני</div>
-      <div class="dtitle mon">קניות ושוק האוכל</div>
-      <div>8.7</div>
+      <span class="dpill">ב׳ 27.7</span>
+      <span class="dtitle mon">Rosenborg + גנים בוטניים + Torvehallerne</span>
+      <span class="dzone">🟢 מרכז — הכל רגלי</span>
     </div>
-    <div class="details">
-      <ul>
-        <li><span class="time">10:00</span><div class="event">קניות בשוק המקומי</div></li>
-        <li><span class="time">14:00</span><div class="event">טעימות אוכל רחוב</div></li>
-        <li><span class="time">18:00</span><div class="event">חזרה למלון ומנוחה</div></li>
-      </ul>
+    <div class="db">
+      <div class="tl">
+        <span class="ts">9:00–11:30</span><span class="tc">Rosenborg Castle + גן המלך (Kongens Have) <small>· סבא/סבתא + תאומים: גן חיצוני חינמי, אין מדרגות</small></span>
+        <span class="ts">11:30–13:00</span><span class="tc">גנים בוטניים — חינמי, חממות זכוכית מרשימות, 13,000 צמחים <small>(5 דק׳ הליכה)</small></span>
+        <span class="ts">13:00–14:30</span><span class="tc">Torvehallerne — שוק אוכל מקורה, ארוחת צהריים <small>(8 דק׳ הליכה מהגנים)</small></span>
+        <span class="ts">15:00+</span><span class="tc">מנוחה חופשית / קפה / קניות קלות באזור</span>
+      </div>
+      <div class="divider"></div>
+      <div class="tags">
+        <span class="tag th">⏰ Rosenborg: 9:00–17:00</span>
+        <span class="tag th">⏰ Torvehallerne ב׳: 10:00–19:00 (שעות מלאות)</span>
+        <span class="tag tk">🎫 Rosenborg time slot — להזמין מראש!</span>
+        <span class="tag tn">👴 יום מתון — מושלם לאמצע הטיול</span>
+      </div>
+      <div class="tip green">💡 <b>למה ב׳?</b> שלושת המקומות ב-10 דק׳ הליכה זה מזה — אפס נסיעות. CopenHill סגור בשני (עשינו אותו בשבת). יום חול = time slot ל-Rosenborg פחות לחוץ. יום יחסית שקט אחרי שלושה ימים עמוסים.</div>
     </div>
-  </article>
+  </div>
 
-  <article class="day-card">
+  <!-- DAY 6: EXPERIMENTARIUM -->
+  <div class="day-card">
     <div class="dh tue">
-      <div class="dpill">שלישי</div>
-      <div class="dtitle tue">ביקור באתרי תרבות</div>
-      <div>9.7</div>
+      <span class="dpill">ג׳ 28.7</span>
+      <span class="dtitle tue">Experimentarium + Strøget + קניות</span>
+      <span class="dzone">🟠 הלרופ → מרכז</span>
     </div>
-    <div class="details">
-      <ul>
-        <li><span class="time">9:30</span><div class="event">ביקור במוזיאון האמנות</div></li>
-        <li><span class="time">12:30</span><div class="event">טיול ברובע האופנה</div></li>
-        <li><span class="time">16:30</span><div class="event">קפה ומנוחה בבית קפה</div></li>
-      </ul>
+    <div class="db">
+      <div class="tl">
+        <span class="ts">9:30–13:00</span><span class="tc">Experimentarium — 200+ תצוגות אינטראקטיביות, מדע לכל הגילאים <small>(Hellerup, 15 דק׳ מטרו)</small></span>
+        <span class="ts">13:30–14:30</span><span class="tc">נסיעה למרכז + ארוחת צהריים</span>
+        <span class="ts">14:30–19:00</span><span class="tc">Strøget + Magasin du Nord + Illum — קניות מרכזיות</span>
+      </div>
+      <div class="divider"></div>
+      <div class="tags">
+        <span class="tag th">⏰ Experimentarium: 9:30–17:00</span>
+        <span class="tag th">⏰ חנויות Strøget: ~10:00–19:00</span>
+        <span class="tag tn">👴 Experimentarium: ספסלים, קצב עצמי — מתאים לכולם</span>
+      </div>
+      <div class="tip amber">💡 <b>למה ג׳?</b> Experimentarium הכי שקט בימי חול (פחות משפחות מקומיות). פתוח מ-9:30 — מנצלים שעות מוקדמות כשהילדים טריים. אחרי 3.5 שעות מדע, הקניות ב-Strøget הן מעבר טבעי. 15 דק׳ מטרו בלבד מהלרופ למרכז.</div>
     </div>
-  </article>
+  </div>
 
-  <article class="day-card">
+  <!-- DAY 7: ZOO -->
+  <div class="day-card">
     <div class="dh wed">
-      <div class="dpill">רביעי</div>
-      <div class="dtitle wed">סיור סיכום בשוק ובחופים</div>
-      <div>10.7</div>
+      <span class="dpill">ד׳ 29.7</span>
+      <span class="dtitle wed">גן חיות קופנהגן + Frederiksberg Center</span>
+      <span class="dzone">🩷 פרדריקסברג / מערב</span>
     </div>
-    <div class="details">
-      <ul>
-        <li><span class="time">10:00</span><div class="event">ביקור בשוק</div></li>
-        <li><span class="time">13:00</span><div class="event">טיול בחוף</div></li>
-        <li><span class="time">18:00</span><div class="event">ארוחת סיום ותמונות</div></li>
-      </ul>
+    <div class="db">
+      <div class="tl">
+        <span class="ts">9:00–14:00</span><span class="tc">גן חיות קופנהגן — 3,000 בעלי חיים, פנדות ענק, ג'ירפות, פיל</span>
+        <span class="ts">14:00–17:00</span><span class="tc">Frederiksberg Center — מרכז קניות ממש ביציאה מהגן</span>
+        <span class="ts">—</span><span class="tc">מי שלא רוצה גן חיות: <small>Fields Shopping Center (Amager) — הגדול בדנמרק</small></span>
+        <span class="ts">19:00</span><span class="tc">ארוחת ערב אחרונה — יום אחרון בקופנהגן!</span>
+      </div>
+      <div class="divider"></div>
+      <div class="tags">
+        <span class="tag th">⏰ גן חיות: 9:00–20:00 (שעות קיץ מורחבות)</span>
+        <span class="tag tk">🎫 CC כולל כניסה לגן חיות</span>
+        <span class="tag tw">⚠️ מחר טיסה 11:45 — לא לנשאר עד מאוחר בלילה</span>
+      </div>
+      <div class="tip green">💡 <b>למה ד׳?</b> גן החיות = יום נינוח ומשפחתי, מושלם כיום אחרון. Frederiksberg Center ממש ביציאה מהגן. רביעי = שקט יחסית. ארוחת ערב אחרונה בעיר — לשמור כוח לבוקר מוקדם.</div>
     </div>
-  </article>
+  </div>
 
-  <footer class="footer">
-    <p>האתר פועל באמצעות GitHub Pages. הקישור הסטטי שלך עובד אם יש לך קובץ index.html.</p>
-  </footer>
+  <!-- DAY 8: DEPARTURE -->
+  <div class="day-card">
+    <div class="dh travel">
+      <span class="dpill">ה׳ 30.7</span>
+      <span class="dtitle travel">✈️ יציאה — CPH → TLV</span>
+      <span class="dzone">LY5412</span>
+    </div>
+    <div class="db">
+      <div class="flight-box">
+        <div class="fleg"><div class="city">CPH</div><div class="time">11:45</div><div class="place">קופנהגן</div></div>
+        <div class="farrow"><span class="fnum">LY5412</span><br>── 4h30m ──▶<br>מושב 10A</div>
+        <div class="fleg"><div class="city">TLV</div><div class="time">17:15</div><div class="place">תל אביב</div></div>
+      </div>
+      <div class="tl">
+        <span class="ts">06:30–07:30</span><span class="tc">קימה, ארוז מזוודות, ארוחת בוקר במלון</span>
+        <span class="ts">08:00–08:15</span><span class="tc">יציאה מהמלון → מטרו / מונית לנמל <small>(~20 דק׳ נסיעה)</small></span>
+        <span class="ts">08:30–08:45</span><span class="tc"><b>הגעה לנמל CPH</b> — El Al: check-in, ביטחון (3 שעות לפני)</span>
+        <span class="ts">11:45</span><span class="tc">המראה LY5412</span>
+        <span class="ts">17:15</span><span class="tc">נחיתה בנמל בן גוריון — ביתה! 🏠</span>
+      </div>
+      <div class="tip red">⚠️ <b>El Al דורשת 3 שעות לפני לטיסות בינלאומיות.</b> לטיסה ב-11:45 — להיות בנמל CPH עד 08:45 לכל המאוחר. יציאה מהמלון: 08:00–08:15.</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:24px; font-size:12px; color:#aaa;">
+    נוצר עם Claude Cowork · עודכן לפי פרטי טיסות El Al LY5411 / LY5412
+  </div>
+
 </div>
 </body>
 </html>
